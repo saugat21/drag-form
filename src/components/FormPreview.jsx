@@ -21,51 +21,101 @@ const FormPreview = ({ formComponents }) => {
   };
 
   return (
-    <div>
-      <h2>Form Preview</h2>
-      {formComponents.map((component) => (
-        <div key={component.id} className="mb-3">
-          <label>{component.label}</label>
-          {component.type === "text" && (
-            <input
-              type="text"
-              className="form-control"
-              onChange={(e) => handleInputChange(component.id, e.target.value)}
-            />
-          )}
-          {component.type === "select" && (
-            <select
-              className="form-control"
-              onChange={(e) => handleInputChange(component.id, e.target.value)}
-            >
-              <option value="">Select an Job</option>
-              <option value="Option 1">Intern</option>
-              <option value="Option 2">Junior Dev</option>
-            </select>
-          )}
-          {component.type === "radio" && (
-            <div>
-              <input
-                type="radio"
-                name={component.id}
-                value="Option 1"
-                onChange={(e) => handleInputChange(component.id, e.target.value)}
-              />
-              Male
-              <input
-                type="radio"
-                name={component.id}
-                value="Option 2"
-                onChange={(e) => handleInputChange(component.id, e.target.value)}
-              />
-              Female
-            </div>
-          )}
+    <div className="container mt-4">
+      <div className="card shadow border-0">
+        <div className="card-header bg-dark text-center text-white">
+          <h3 className="mb-0">Form Preview</h3>
         </div>
-      ))}
-      <button className="btn btn-warning" onClick={validateForm}>
-        Validate Form
-      </button>
+        <div className="card-body">
+          <form>
+            {formComponents.map((component) => (
+              <div className="mb-3" key={component.id}>
+                <label htmlFor={component.id} className="form-label">
+                  {component.label}
+                </label>
+                {component.type === "text" && (
+                  <input
+                    type="text"
+                    id={component.id}
+                    className="form-control"
+                    placeholder={`Enter ${component.label.toLowerCase()}`}
+                    onChange={(e) =>
+                      handleInputChange(component.id, e.target.value)
+                    }
+                  />
+                )}
+                {component.type === "select" && (
+                  <select
+                    id={component.id}
+                    className="form-select"
+                    onChange={(e) =>
+                      handleInputChange(component.id, e.target.value)
+                    }
+                  >
+                    <option value="">
+                      Select {component.label.toLowerCase()}
+                    </option>
+                    <option value="Option 1">Option 1</option>
+                    <option value="Option 2">Option 2</option>
+                  </select>
+                )}
+                {component.type === "radio" && (
+                  <div className="d-flex flex-wrap gap-2">
+                    <div className="form-check">
+                      <input
+                        type="radio"
+                        id={`${component.id}-option1`}
+                        name={component.id}
+                        value="Option 1"
+                        className="form-check-input"
+                        onChange={(e) =>
+                          handleInputChange(component.id, e.target.value)
+                        }
+                      />
+                      <label
+                        htmlFor={`${component.id}-option1`}
+                        className="form-check-label"
+                      >
+                        Option 1
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <input
+                        type="radio"
+                        id={`${component.id}-option2`}
+                        name={component.id}
+                        value="Option 2"
+                        className="form-check-input"
+                        onChange={(e) =>
+                          handleInputChange(component.id, e.target.value)
+                        }
+                      />
+                      <label
+                        htmlFor={`${component.id}-option2`}
+                        className="form-check-label"
+                      >
+                        Option 2
+                      </label>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </form>
+        </div>
+        <div className="card-footer d-flex justify-content-between">
+          <button
+            className="btn btn-secondary"
+            type="reset"
+            onClick={() => setFormData({})}
+          >
+            Reset Form
+          </button>
+          <button className="btn btn-success" onClick={validateForm}>
+            Validate Form
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
