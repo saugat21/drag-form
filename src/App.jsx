@@ -6,7 +6,8 @@ import FormPreview from './components/FormPreview';
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
- const [formComponents, setFormComponents] = useState([]);
+  const [formComponents, setFormComponents] = useState([]);
+ 
 
  return (
    <div className="container mt-4">
@@ -22,9 +23,9 @@ const App = () => {
          <FormPreview formComponents={formComponents} />
        </div>
      </div>
+     
      <ToastContainer position="top-right" autoClose={2000} />
    </div>
-
  );
 }
 
