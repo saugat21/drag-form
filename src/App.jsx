@@ -1,5 +1,6 @@
 
 import React, { useState, useMemo } from "react";
+import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import FormBuilder from './components/FormBuilder';
 import FormPreview from './components/FormPreview';

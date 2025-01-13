@@ -55,8 +55,8 @@ const FormPreview = ({ formComponents }) => {
                     <option value="">
                       Select {component.label.toLowerCase()}
                     </option>
-                    <option value="Option 1">Option 1</option>
-                    <option value="Option 2">Option 2</option>
+                    <option value="Option 1">Intern</option>
+                    <option value="Option 2">Junior Dev</option>
                   </select>
                 )}
                 {component.type === "radio" && (
@@ -76,7 +76,7 @@ const FormPreview = ({ formComponents }) => {
                         htmlFor={`${component.id}-option1`}
                         className="form-check-label"
                       >
-                        Option 1
+                        Male
                       </label>
                     </div>
                     <div className="form-check">
@@ -94,7 +94,7 @@ const FormPreview = ({ formComponents }) => {
                         htmlFor={`${component.id}-option2`}
                         className="form-check-label"
                       >
-                        Option 2
+                        Female
                       </label>
                     </div>
                   </div>

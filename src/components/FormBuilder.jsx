@@ -21,17 +21,17 @@ const FormBuilder = ({ formComponents, setFormComponents }) => {
   };
 
   return (
-     <div className="container mt-5">
-      <div className="row">
-        <div className="col-lg-8 mb-4">
-          <div className="card shadow border-0">
+    <div className="container mt-4 ">
+      <div className="row justify-content-center">
+        <div className="col-lg-12 col-md-10 mb-4">
+          <div className="card shadow-lg  border-0">
             <div className="card-header bg-primary text-white text-center">
               <h4 className="mb-0">Form Builder</h4>
             </div>
             <div
               className="card-body"
               style={{
-                minHeight: "300px",
+                minHeight: "310px",
                 backgroundColor: "#f8f9fa",
                 border: "2px dashed #6c757d",
                 borderRadius: "5px",
@@ -57,14 +57,16 @@ const FormBuilder = ({ formComponents, setFormComponents }) => {
               ) : (
                 <div className="text-center text-muted">
                   <i className="bi bi-plus-circle fs-1"></i>
-                  <p className="mt-2">Drag components here to start building your form.</p>
+                  <p className="mt-2">
+                    Drag components here to start building your form.
+                  </p>
                 </div>
               )}
             </div>
           </div>
         </div>
-          <FormComponentLibrary setSelectedComponent={setSelectedComponent} />
-        </div>
+        <FormComponentLibrary setSelectedComponent={setSelectedComponent} />
+      </div>
     </div>
   );
 };
