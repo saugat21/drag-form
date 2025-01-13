@@ -1,15 +1,15 @@
 import React from "react";
 
 const components = [
-  { type: "text", label: "Text Field", icon: "bi-pencil-square" },
-  { type: "select", label: "Dropdown", icon: "bi-chevron-down" },
-  { type: "radio", label: "Radio Buttons", icon: "bi-ui-radios" },
+  { type: "text", label: "Text Field",  },
+  { type: "select", label: "Dropdown",  },
+  { type: "radio", label: "Radio Buttons", },
 ];
 
 const FormComponentLibrary = ({ setSelectedComponent }) => {
  return (
    <div className="card shadow-lg mt-4 text-center border-0">
-     <div className="card-header bg-primary text-white">
+     <div className="card-header bg-dark text-white">
        <h4 className="mb-0">Component Library</h4>
      </div>
      <div className="card-body">
@@ -20,7 +20,7 @@ const FormComponentLibrary = ({ setSelectedComponent }) => {
          {components.map((component) => (
            <div
              key={component.type}
-             className="p-3 border rounded shadow-sm d-flex align-items-center justify-content-between bg-light"
+             className="p-3 border rounded shadow-lg d-flex align-items-center justify-content-between bg-light"
              draggable
              onDragStart={() => setSelectedComponent(component)}
              style={{

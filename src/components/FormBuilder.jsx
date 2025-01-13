@@ -25,7 +25,7 @@ const FormBuilder = ({ formComponents, setFormComponents }) => {
       <div className="row justify-content-center">
         <div className="col-lg-12 col-md-10 mb-4">
           <div className="card shadow-lg  border-0">
-            <div className="card-header bg-primary text-white text-center">
+            <div className="card-header bg-dark text-white text-center">
               <h4 className="mb-0">Form Builder</h4>
             </div>
             <div

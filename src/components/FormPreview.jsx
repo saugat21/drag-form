@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { z } from "zod";
 import generateSchema from "../utils/schemaGenerator";
+import { toast } from "react-toastify";
 
 const FormPreview = ({ formComponents }) => {
   const [formData, setFormData] = useState({});
@@ -14,9 +15,10 @@ const FormPreview = ({ formComponents }) => {
     const zodSchema = z.object(schema);
     try {
       zodSchema.parse(formData);
-      alert("Validation Passed");
+      toast.success("Validation Passed");
     } catch (error) {
-      alert("Validation Failed: " + error.errors[0].message);
+        toast.error("Validation Failed")
+    
     }
   };
 
@@ -39,6 +41,7 @@ const FormPreview = ({ formComponents }) => {
                     id={component.id}
                     className="form-control"
                     placeholder={`Enter ${component.label.toLowerCase()}`}
+                    value={formData[component.id] || ""}
                     onChange={(e) =>
                       handleInputChange(component.id, e.target.value)
                     }
@@ -48,6 +51,7 @@ const FormPreview = ({ formComponents }) => {
                   <select
                     id={component.id}
                     className="form-select"
+                    value={formData[component.id] || ""}
                     onChange={(e) =>
                       handleInputChange(component.id, e.target.value)
                     }
@@ -67,6 +71,7 @@ const FormPreview = ({ formComponents }) => {
                         id={`${component.id}-option1`}
                         name={component.id}
                         value="Option 1"
+                        checked={formData[component.id] === "Option 1"}
                         className="form-check-input"
                         onChange={(e) =>
                           handleInputChange(component.id, e.target.value)
@@ -86,6 +91,7 @@ const FormPreview = ({ formComponents }) => {
                         name={component.id}
                         value="Option 2"
                         className="form-check-input"
+                        checked={formData[component.id] === "Option 2"}
                         onChange={(e) =>
                           handleInputChange(component.id, e.target.value)
                         }
