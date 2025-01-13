@@ -21,21 +21,50 @@ const FormBuilder = ({ formComponents, setFormComponents }) => {
   };
 
   return (
-    <div>
-      <h2>Form Builder</h2>
-      <div
-        className="border p-3"
-        style={{ minHeight: "300px" }}
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-      >
-        {formComponents.map((component) => (
-          <div key={component.id} className="border p-2 mb-2">
-            {component.type}: {component.label}
+     <div className="container mt-5">
+      <div className="row">
+        <div className="col-lg-8 mb-4">
+          <div className="card shadow border-0">
+            <div className="card-header bg-primary text-white text-center">
+              <h4 className="mb-0">Form Builder</h4>
+            </div>
+            <div
+              className="card-body"
+              style={{
+                minHeight: "300px",
+                backgroundColor: "#f8f9fa",
+                border: "2px dashed #6c757d",
+                borderRadius: "5px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: formComponents.length ? "flex-start" : "center",
+              }}
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+            >
+              {formComponents.length ? (
+                formComponents.map((component) => (
+                  <div
+                    key={component.id}
+                    className="d-flex justify-content-between align-items-center border p-3 mb-2 bg-white rounded shadow-sm w-100"
+                  >
+                    <span>
+                      <strong>{component.type}:</strong> {component.label}
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center text-muted">
+                  <i className="bi bi-plus-circle fs-1"></i>
+                  <p className="mt-2">Drag components here to start building your form.</p>
+                </div>
+              )}
+            </div>
           </div>
-        ))}
-      </div>
-      <FormComponentLibrary setSelectedComponent={setSelectedComponent} />
+        </div>
+          <FormComponentLibrary setSelectedComponent={setSelectedComponent} />
+        </div>
     </div>
   );
 };
