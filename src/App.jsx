@@ -3,6 +3,7 @@ import React, { useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FormBuilder from './components/FormBuilder';
 import FormPreview from './components/FormPreview';
+import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
          <FormPreview formComponents={formComponents} />
        </div>
      </div>
-     
+     <Footer/>
      <ToastContainer position="top-right" autoClose={2000} />
    </div>
  );

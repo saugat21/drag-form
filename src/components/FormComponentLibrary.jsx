@@ -8,7 +8,7 @@ const components = [
 
 const FormComponentLibrary = ({ setSelectedComponent }) => {
  return (
-   <div className="card shadow-lg mt-4 text-center border-0">
+   <div className="card shadow-lg mt-2 text-center border-0">
      <div className="card-header bg-dark text-white">
        <h4 className="mb-0">Component Library</h4>
      </div>
